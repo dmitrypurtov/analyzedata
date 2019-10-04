@@ -10,8 +10,15 @@ class ExtractionGender:
         self
 
     def get(self):
+        result_list = []
         parser = Parser(GENDER_PARSER)
-        GenderFact = parser.find(self.text)
-        if GenderFact:
-            return GenderFact.fact.gender
-        return None
+        matches = list(parser.findall(self.text))
+        for match in matches:
+            if match is not None:
+                try:
+                    result_list.append(match.fact.gender)
+                except KeyError:
+                    pass
+
+        result_list = list(dict.fromkeys(result_list))
+        return result_list

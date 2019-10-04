@@ -14,7 +14,7 @@ class DataLoader:
     def getTextList(self):
         loaded_json = []
         result = []
-        path = os.path.dirname(os.path.abspath(__file__)) + "\\" + 'data.json'
+        path = os.path.dirname(os.path.abspath(__file__)) + "/examples/" + 'offers.json'
         with open(path, encoding='utf-8') as fh:
             loaded_json = json.load(fh)
         for item in loaded_json:

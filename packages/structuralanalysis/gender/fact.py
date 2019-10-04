@@ -10,6 +10,8 @@ GENDERS = {
     'парень': 'male',
     'женщина': 'female',
     'девушка': 'female',
+    'мальчик': 'male',
+    'девочка': 'female',
 }
 
 NAME = dictionary(GENDERS).interpretation(

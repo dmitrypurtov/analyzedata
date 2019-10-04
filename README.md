@@ -17,3 +17,8 @@ python3 manage.py migrate
 ```
 jupyter notebook
 ```
+
+cd ~/GitHub/analyzedata
+export PYTHONPATH="/home/dmitry/GitHub/analyzedata/packages"
+echo $PYTHONPATH
+jupyter notebook
