@@ -1,7 +1,5 @@
 from yargy import Parser
-from fulldate import FULL_DATE_PARSER, FullDateFact
-from monthday import MOUNTH_DAY_DATE_PARSER, MonthDayDateFact
-from dayweek import WEEK_DATE_PARSER, DayWeekDateFact
+from rangedate import RANGE_DATE_PARSER, RangDateFact
 from ipymarkup import show_markup
 from dataloader import DataLoader
 from random import sample
@@ -9,17 +7,24 @@ from IPython.display import display
 
 
 lines = DataLoader().getTextList()
-parser = Parser(MOUNTH_DAY_DATE_PARSER)
+parser = Parser(RANGE_DATE_PARSER)
 
 for line in lines[:21]:
     result_list = []
+    line = line.lower()
     matches = list(parser.findall(line))
     print('----------------------------------------------------------------------')
     for match in matches:
         if match is not None:
             try:
-                result_list.append(match.fact.gender)
-                print("Gender: " + match.fact.gender)
+                #result_list.append(match.fact.gender)
+                print("startyear: " + match.fact.startyear)
+                print("startmonth: " + match.fact.startmonth)
+                print("startday: " + match.fact.startday)
+                print(" ")
+                print("endyear: " + match.fact.endyear)
+                print("endmonth: " + match.fact.endmonth)
+                print("endday: " + match.fact.endday)
             except KeyError:
                 print("Gender: KeyError")             
     show_markup(line, [_.span for _ in matches])
