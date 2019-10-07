@@ -31,7 +31,8 @@ SECRET_KEY = '#e1zhaly+8@lfg!xy@48au=3-)#k(02)j^^vm%8q49rkthu6mo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['netmuse.ru']
+#ALLOWED_HOSTS = ['netmuse.ru']
+ALLOWED_HOSTS = ['127.0.0.1','netmuse.ru']
 
 
 # Application definition
