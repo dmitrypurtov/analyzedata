@@ -10,8 +10,15 @@ class ExtractionContentType:
         self
 
     def get(self):
+        result_list = []
         parser = Parser(CONTENT_TYPE_PARSER)
-        ViewFact = parser.find(self.text)
-        if ViewFact:
-            return ViewFact.fact.content
-        return None
+        matches = list(parser.findall(self.text))
+        for match in matches:
+            if match is not None:
+                try:
+                    result_list.append(match.fact.profile)
+                except KeyError:
+                    pass
+
+        result_list = list(dict.fromkeys(result_list))
+        return result_list

@@ -1,5 +1,5 @@
 from yargy import Parser
-from rangedate import RANGE_DATE_PARSER, RangDateFact
+from fact import RANGE_DATE_PARSER, RangDateFact
 from ipymarkup import show_markup
 from dataloader import DataLoader
 from random import sample

@@ -6,7 +6,10 @@ from yargy.predicates import dictionary, normalized
 CityFact = fact('CityFact', ['city'])
 
 CITIES = {
-    'Москва': 'Москва',
+    'Москва': '236',
+    'МСК': '236',
+    'Санкт-Петербург': '16113',
+    'СПБ': '16113',
 }
 
 NAME = dictionary(CITIES).interpretation(

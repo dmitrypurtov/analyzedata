@@ -6,8 +6,13 @@ ContentTypeFact = fact(
     'ContentTypeFact', ['content', attribute('current_era', True)])
 
 CONTENTS = {
-    'съемки': 'shooting',
-    'кастинг': 'casting',
+    'Кастинг': 'Сasting',
+    'Фотосъемка': 'Photoshooting',
+    'Видеосъемка': 'Videoshooting',
+    'Реклама': 'Advertising',
+    'Шоу': 'TVShow',
+    'Клип': 'Clip',
+    'Показ': 'Fashionshow',
 }
 
 NAME = dictionary(CONTENTS).interpretation(

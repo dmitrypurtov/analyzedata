@@ -1,3 +1,3 @@
 import os
 
-from .extraction import ExtractionDate
+from .extraction import ExtractionGender

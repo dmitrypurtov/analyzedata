@@ -6,12 +6,12 @@ from yargy.predicates import dictionary, normalized
 GenderFact = fact('GenderFact', ['gender'])
 
 GENDERS = {
-    'мужчина': 'male',
-    'парень': 'male',
-    'женщина': 'female',
-    'девушка': 'female',
-    'мальчик': 'male',
-    'девочка': 'female',
+    'мужчина': 'Male',
+    'парень': 'Male',
+    'женщина': 'Female',
+    'девушка': 'Female',
+    'мальчик': 'Male',
+    'девочка': 'Female',
 }
 
 NAME = dictionary(GENDERS).interpretation(
