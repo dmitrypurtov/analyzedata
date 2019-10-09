@@ -15,10 +15,18 @@ python3 manage.py migrate
 ## Jupyter Notebook
 Для более кофортной разработки модулей лучше использовать Jupyter Notebook, из-за более информативной визуализация
 ```
-jupyter notebook
-```
-
 cd ~/GitHub/analyzedata
 export PYTHONPATH="/home/dmitry/GitHub/analyzedata/packages"
-echo $PYTHONPATH
 jupyter notebook
+echo $PYTHONPATH
+```
+
+## Virtualenv
+python3 -m venv env
+source env/bin/activate
+
+## VSCode Python
+```
+Ctrl+Shift+P
+Select Interpreter
+```
