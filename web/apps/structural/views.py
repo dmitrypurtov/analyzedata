@@ -1,23 +1,39 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
-#from structuralanalysis.date.extraction import ExtractionDate
-#from dataloader import DataLoader
+from django.views.decorators.csrf import csrf_exempt
+
+from extractionfacts import ExtractionOffer
+from jsonencoder import JsonEncoder
 
 app_name = 'structural'
 
 def index(request):
     context = {
-        "text": "DataLoader().getTextList().pop(0)",
+        "text": "",
         "json": ""
     }
     return render(request, app_name + '/templates/index.html', context)
 
 def get(request):
     text = request.POST['text']
+    extractionOffer = ExtractionOffer(text)
+    facts = extractionOffer.getFacts()
     context = {
         "text": text,
         "json": {
-            "data": "ExtractionDate(text).getDate()"
+            "country": facts.Country,
+            "city": facts.City,
+            "StartDate": facts.StartDate,
+            "EndDate": facts.EndDate,
         }
     }
     return render(request, app_name + '/templates/index.html', context)
+
+
+@csrf_exempt
+def apioffer(request):
+    data = JsonEncoder().convert_to_object(request.body)
+    text = data['text']
+    extractionOffer = ExtractionOffer(text)
+    json = extractionOffer.getJson()
+    return JsonResponse(json, safe=False)

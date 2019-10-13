@@ -1,5 +1,5 @@
 from yargy import Parser
-from fact import GENDER_PARSER, GenderFact
+from .fact import GENDER_PARSER, GenderFact
 
 
 class ExtractionGender:

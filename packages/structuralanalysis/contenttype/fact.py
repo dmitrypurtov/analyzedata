@@ -1,22 +1,23 @@
-from yargy import rule, or_
+from ipymarkup import show_markup
+from yargy import rule, and_, or_
 from yargy.interpretation import fact, attribute
 from yargy.predicates import dictionary, normalized
 
-ContentTypeFact = fact(
-    'ContentTypeFact', ['content', attribute('current_era', True)])
+
+ContentTypeFact = fact('ContentTypeFact', ['contenttype'])
 
 CONTENTS = {
-    'Кастинг': 'Сasting',
-    'Фотосъемка': 'Photoshooting',
-    'Видеосъемка': 'Videoshooting',
-    'Реклама': 'Advertising',
-    'Шоу': 'TVShow',
-    'Клип': 'Clip',
-    'Показ': 'Fashionshow',
+    'кастинг': 'Сasting',
+    'фотосъемка': 'Photoshooting',
+    'видеосъемка': 'Videoshooting',
+    'реклама': 'Advertising',
+    'шоу': 'TVShow',
+    'клип': 'Clip',
+    'показ': 'Fashionshow',
 }
 
 NAME = dictionary(CONTENTS).interpretation(
-    ContentTypeFact.content.normalized().custom(CONTENTS.__getitem__)
+    ContentTypeFact.contenttype.normalized().custom(CONTENTS.__getitem__)
 )
 
 CONTENT_TYPE_PARSER = or_(

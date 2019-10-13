@@ -1,10 +1,15 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(
+    __file__)).rsplit('packages')[0] + 'packages')
+
 from yargy import Parser
 from fact import PROFILE_TYPE_PARSER, ProfileTypeFact
 from ipymarkup import show_markup
 from dataloader import DataLoader
 from IPython.display import display
 
-lines = DataLoader().getTextList()
+lines = DataLoader().exemple_offers()
 parser = Parser(PROFILE_TYPE_PARSER)
 
 for line in lines[:21]:

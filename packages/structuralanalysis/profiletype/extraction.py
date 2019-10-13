@@ -1,5 +1,5 @@
 from yargy import Parser
-from fact import PROFILE_TYPE_PARSER, ProfileTypeFact
+from .fact import PROFILE_TYPE_PARSER, ProfileTypeFact
 
 
 class ExtractionProfileType:

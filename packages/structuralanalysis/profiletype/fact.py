@@ -6,10 +6,10 @@ from yargy.predicates import dictionary, normalized
 ProfileTypeFact = fact('ProfileTypeFact', ['profile'])
 
 PROFILES = {
-    'Модель': 'Model',
-    'Визажист': 'Visagiste',
-    'Фотограф': 'Photographer',
-    'Стилист': 'Stylist',
+    'модель': 'Model',
+    'визажист': 'Visagiste',
+    'фотограф': 'Photographer',
+    'стилист': 'Stylist',
 }
 
 NAME = dictionary(PROFILES).interpretation(

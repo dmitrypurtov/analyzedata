@@ -1,5 +1,5 @@
 from yargy import Parser
-from fact import CONTENT_TYPE_PARSER, ContentTypeFact
+from .fact import CONTENT_TYPE_PARSER, ContentTypeFact
 
 
 class ExtractionContentType:
@@ -16,7 +16,7 @@ class ExtractionContentType:
         for match in matches:
             if match is not None:
                 try:
-                    result_list.append(match.fact.profile)
+                    result_list.append(match.fact.contenttype)
                 except KeyError:
                     pass
 

@@ -1,5 +1,5 @@
 from yargy import Parser
-from fact import CITY_PARSER, CityFact
+from .facts import CITY_PARSER, CityFact
 
 
 class ExtractionCity:
@@ -21,4 +21,4 @@ class ExtractionCity:
                     pass
 
         result_list = list(dict.fromkeys(result_list))
-        return result_list
+        return next(iter(result_list), '')
