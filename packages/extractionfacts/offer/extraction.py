@@ -7,6 +7,7 @@ sys.path.append(os.path.dirname(os.path.abspath(
 
 from datetime import datetime
 from jsonencoder import JsonEncoder
+from structuralanalysis import ExtractionContact
 from structuralanalysis import ExtractionDate
 from structuralanalysis import ExtractionProfileType
 from structuralanalysis import ExtractionGender
@@ -14,10 +15,16 @@ from structuralanalysis import ExtractionContentType
 from structuralanalysis import ExtractionCity
 
 
+class Contacts:
+    Email = []
+    Phone = []
+    Url = []
+
 class JobTextAnalysisResponseContract:
     ContentTypes = []
     Genders = []
     ProfileTypes = [] 
+    Contacts = None
     Country = ''
     City = ''
     StartDate = None
@@ -56,6 +63,12 @@ class ExtractionOffer:
             facts.StartDate = extractionDate.start_date.strftime("%d-%m-%Y")
         if extractionDate.end_date is not None:
             facts.EndDate = extractionDate.end_date.strftime("%d-%m-%Y")
+        
+        extractionContact = ExtractionContact(self.text)
+        facts.Contacts = Contacts()
+        facts.Contacts.Email = extractionContact.getEmails()
+        facts.Contacts.Phone = extractionContact.getPhones()
+        facts.Contacts.Url = extractionContact.getUrls()
         return facts
 
     def getJson(self):        
