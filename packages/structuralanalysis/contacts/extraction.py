@@ -17,7 +17,7 @@ class ExtractionContact:
 
     def getPhones(self):
         result_list = []
-        result_list = re.findall('(?:\B\+ ?49|\b0)(?: *[(-]? *\d(?:[ \d]*\d)?)? *(?:[)-] *)?\d+ *(?:[/)-] *)?\d+ *(?:[/)-] *)?\d+(?: *- *\d+)?', self.text)
+        result_list = re.findall('(\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})', self.text)
         result_list = list(dict.fromkeys(result_list))
         return next(iter(result_list), '')
 

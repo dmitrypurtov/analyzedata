@@ -4,11 +4,11 @@ sys.path.append(os.path.dirname(os.path.abspath(
     __file__)).rsplit('packages')[0] + 'packages')
     
 from dataloader import DataLoader
-from offer import ExtractionOffer
+from extraction import ExtractionOffer
 
-lines = DataLoader().getTextList()
+lines = DataLoader().exemple_offers()
 
-for line in lines[:100]:
+for line in lines[:10]:
     extractionOffer = ExtractionOffer(line)
     print('----------------------------------------------------------------------')
     #json = extractionOffer.getJson()
@@ -20,6 +20,9 @@ for line in lines[:100]:
     print("Тип профиля:",contract.ProfileTypes)
     print("Дата начала:",contract.StartDate)
     print("Дата завершения:", contract.EndDate)
+    print("Email:", contract.Contacts.Email)
+    print("Phone:", contract.Contacts.Phone)
+    print("Url:", contract.Contacts.Url)
     #print("Json:", json)
     print('')
     print(line)
