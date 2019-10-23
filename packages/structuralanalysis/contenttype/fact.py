@@ -7,7 +7,7 @@ from yargy.predicates import dictionary, normalized
 ContentTypeFact = fact('ContentTypeFact', ['contenttype'])
 
 CONTENTS = {
-    'кастинг': 'Сasting',
+    'кастинг': 'Casting',
     'фотосъемка': 'Photoshooting',
     'видеосъемка': 'Videoshooting',
     'реклама': 'Advertising',

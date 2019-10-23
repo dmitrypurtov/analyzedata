@@ -60,9 +60,9 @@ class ExtractionOffer:
         extractionDate = ExtractionDate(self.text)
         extractionDate.getDate()
         if extractionDate.start_date is not None:
-            facts.StartDate = extractionDate.start_date.strftime("%d-%m-%Y")
+            facts.StartDate = extractionDate.start_date
         if extractionDate.end_date is not None:
-            facts.EndDate = extractionDate.end_date.strftime("%d-%m-%Y")
+            facts.EndDate = extractionDate.end_date
         
         extractionContact = ExtractionContact(self.text)
         facts.Contacts = Contacts()

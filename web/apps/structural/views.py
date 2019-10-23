@@ -32,8 +32,8 @@ def get(request):
 
 @csrf_exempt
 def apioffer(request):
-    data = JsonEncoder().convert_to_object(request.body)
+    data = JsonEncoder().convert_to_object(request.body.decode('utf-8'))
     text = data['text']
     extractionOffer = ExtractionOffer(text)
     json = extractionOffer.getJson()
-    return JsonResponse(json, safe=False)
+    return HttpResponse(json)
